@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, ScrollView, StyleSheet } from "react-native";
+import { View, Text, ScrollView, StyleSheet, FlatList } from "react-native";
 import LoadingSpinner from "../components/LoadingSpinner";
 import DataCard from "../components/DataCard";
 import TargetShareData from "../store/TargetShareData";
@@ -25,7 +25,7 @@ export default function SearchResults({ route, navigation }) {
 
     // console.log("data", data);
     return (
-        <ScrollView style={styles.rootContainer}>
+        <View style={styles.rootContainer}>
             <Text style={styles.title}>
                 Results: {route.params.year} Season
             </Text>
@@ -34,35 +34,31 @@ export default function SearchResults({ route, navigation }) {
             )}
             {data.length < 1 && <LoadingSpinner visible={spinnerVisibile} />}
             {data.length > 0 && (
-                <>
-                    {data.map((player) => {
-                        let passAtt;
-                        let teamAtt;
-                        let season;
-                        if (route.params.week) {
-                            passAtt = player["Player-Pass Attempt"];
-                            teamAtt = player["Team-Pass Attmept"];
-                            season = false;
-                        } else {
-                            passAtt = player["Player Pass Attempt- Season"];
-                            teamAtt = player["Team Pass Attmept- Season"];
-                            season = true;
-                        }
-
+                <FlatList
+                    data={data}
+                    renderItem={({ item, index }) => {
                         return (
                             <DataCard
-                                name={player["Player Name"]}
-                                playerPassAttempt={passAtt}
-                                targetShare={player["Target Share"]}
-                                team={player["Team"]}
-                                teamPassAttempt={teamAtt}
-                                season={season}
+                                name={item["Player Name"]}
+                                playerPassAttempt={
+                                    route.params.week
+                                        ? item["Player-Pass Attempt"]
+                                        : item["Player Pass Attempt- Season"]
+                                }
+                                targetShare={item["Target Share"]}
+                                team={item["Team"]}
+                                teamPassAttempt={
+                                    route.params.week
+                                        ? item["Team-Pass Attmept"]
+                                        : item["Team Pass Attmept- Season"]
+                                }
+                                season={route.params.week ? true : false}
                             />
                         );
-                    })}
-                </>
+                    }}
+                />
             )}
-        </ScrollView>
+        </View>
     );
 }
 

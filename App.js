@@ -1,5 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { StatusBar } from "expo-status-bar";
 
 import { Button, StyleSheet } from "react-native";
 import ColorButton from "./components/ColorButton";
@@ -16,6 +17,7 @@ const Stack = createStackNavigator();
 export default function App() {
     return (
         <NavigationContainer>
+            <StatusBar style="light" />
             <Stack.Navigator
                 screenOptions={{
                     headerTintColor: Colors.gray,
