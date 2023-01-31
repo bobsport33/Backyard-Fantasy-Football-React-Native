@@ -2,12 +2,11 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import AnimatedLoader from "react-native-animated-loader";
 
-export default function LoadingSpinner() {
+export default function LoadingSpinner(props) {
     return (
         <View>
-            <Text>Loading Spinner</Text>
             <AnimatedLoader
-                visible="true"
+                visible={props.visible}
                 overlayColor="rgba(255,255,255,0.75)"
                 animationStyle={styles.lottie}
                 speed={1}
