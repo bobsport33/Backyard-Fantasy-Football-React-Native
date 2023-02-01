@@ -7,6 +7,15 @@ const Colors = {
     grayDark2: " #bbb9b9",
     navy: "#032061",
     navyLight: "#122f6e",
+
+    green: "#02d28f",
+    red: "#ea4888",
+    blue: "#01a6fc",
+    dark: "#181b21",
 };
 
 export default Colors;
+
+// possible dark matches
+// #080b30
+// #373b3f

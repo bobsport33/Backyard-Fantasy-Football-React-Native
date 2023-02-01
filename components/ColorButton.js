@@ -6,6 +6,7 @@ export default function ColorButton({
     backgroundColor,
     textColor,
     onPress,
+    borderColor,
     style,
 }) {
     return (
@@ -13,7 +14,7 @@ export default function ColorButton({
             style={({ pressed }) => [
                 style,
                 styles.button,
-                { backgroundColor: backgroundColor },
+                { backgroundColor: backgroundColor, borderColor: borderColor },
                 pressed && styles.pressed,
             ]}
             onPress={onPress}
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 1, height: 1 },
         shadowRadius: 2,
         borderRadius: 4,
-
+        borderWidth: 1,
         marginRight: 16,
     },
     pressed: {

@@ -22,10 +22,7 @@ export default function App() {
                 screenOptions={{
                     headerTintColor: Colors.gray,
                     headerStyle: {
-                        backgroundColor: Colors.navy,
-                    },
-                    statusBar: {
-                        backgroundColor: "#fff",
+                        backgroundColor: Colors.dark,
                     },
                 }}
             >
@@ -37,8 +34,8 @@ export default function App() {
                             <ColorButton
                                 onPress={() => navigation.navigate("Login")}
                                 title="Login"
-                                textColor={Colors.navy}
-                                backgroundColor={Colors.gray}
+                                textColor={Colors.blue}
+                                backgroundColor={Colors.dark}
                             />
                         ),
                     })}

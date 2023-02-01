@@ -26,6 +26,6 @@ export default async function TargetShareData(year, week = null) {
     const stringifyResponse = JSON.stringify(response);
 
     const data = JSON.parse(stringifyResponse);
-    console.log(data.data);
+    // console.log(data.data);
     return data.data;
 }

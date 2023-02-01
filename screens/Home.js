@@ -1,4 +1,12 @@
-import { View, Text, StyleSheet, ScrollView, TextInput } from "react-native";
+import {
+    View,
+    Text,
+    StyleSheet,
+    ScrollView,
+    TextInput,
+    ImageBackground,
+    Image,
+} from "react-native";
 import ImageCluster from "../components/ImageCluster";
 import Colors from "../constants/colors";
 import ColorButton from "../components/ColorButton";
@@ -9,43 +17,50 @@ export default function Home({ navigation }) {
     };
     return (
         <ScrollView style={styles.rootContainer}>
-            <Text style={styles.title}>Backyard Fantasy Football</Text>
-            <ImageCluster />
-            <View style={styles.textContainer}>
-                <Text style={styles.text}>
-                    How do you win fantasy football championships? Luck? Grit?
-                    Determination? Unfortunately, we cannot rely on any of those
-                    for consistent fantasy numbers.
-                </Text>
-                <Text style={styles.text}>
-                    That is where Backyard Fantasy Football comes into play. A
-                    subscription to BFF will give you access to all the data and
-                    analytics that lead to fantasy success. Sign up now to take
-                    the next step towards winning!
-                </Text>
-            </View>
-            <View style={styles.formContainer}>
-                <Text style={styles.formTitle}>Sign Up</Text>
-                <View>
-                    <Text>Name</Text>
-                    <TextInput style={styles.input} />
-                </View>
-                <View>
-                    <Text>Email</Text>
-                    <TextInput style={styles.input} />
-                </View>
-                <View>
-                    <Text>Password</Text>
-                    <TextInput style={styles.input} />
-                </View>
-                <ColorButton
-                    style={styles.formButton}
-                    title="Sign Up"
-                    backgroundColor={Colors.navy}
-                    textColor={Colors.primary}
-                    onPress={submitFormHandler}
+            <ImageBackground
+                source={require("../assets/assets/field-4.jpg")}
+                style={styles.backgroundImage}
+            >
+                <Image
+                    style={styles.logo}
+                    source={require("../assets/assets/logo-white.png")}
                 />
-            </View>
+
+                {/* <ImageCluster /> */}
+                <View style={styles.textContainer}>
+                    <Text style={styles.text}>
+                        Want to win your fantasy football championships? Then
+                        you need Backyard Fantasy Football. A subscription to
+                        BFF will give you access to all the data and analytics
+                        that lead to fantasy success. Sign up now to take the
+                        next step towards winning!
+                    </Text>
+                </View>
+
+                <View style={styles.formContainer}>
+                    <Text style={styles.formTitle}>Sign Up</Text>
+                    <View>
+                        <Text style={styles.formText}>Name</Text>
+                        <TextInput style={styles.input} />
+                    </View>
+                    <View>
+                        <Text style={styles.formText}>Email</Text>
+                        <TextInput style={styles.input} />
+                    </View>
+                    <View>
+                        <Text style={styles.formText}>Password</Text>
+                        <TextInput style={styles.input} />
+                    </View>
+                    <ColorButton
+                        style={styles.formButton}
+                        title="Sign Up"
+                        backgroundColor={Colors.green}
+                        borderColor={Colors.green}
+                        textColor={Colors.dark}
+                        onPress={submitFormHandler}
+                    />
+                </View>
+            </ImageBackground>
         </ScrollView>
     );
 }
@@ -53,27 +68,37 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
     rootContainer: {
         flex: 1,
-        backgroundColor: Colors.primary,
     },
-    title: {
-        fontSize: 36,
-        color: Colors.navy,
-        textAlign: "center",
-        marginTop: 32,
+    backgroundImage: {
+        flex: 1,
+        resizeMode: "center",
     },
+
+    logo: {
+        height: 250,
+        width: "70%",
+        alignSelf: "center",
+        marginVertical: 30,
+        borderRadius: 150,
+    },
+
     textContainer: {
-        marginTop: 12,
+        backgroundColor: Colors.gray,
+        opacity: 0.7,
+        width: "80%",
+        alignSelf: "center",
+        borderRadius: 15,
     },
     text: {
         fontSize: 20,
-        color: Colors.navy,
+        color: Colors.dark,
         marginVertical: 12,
         marginHorizontal: 24,
     },
     formContainer: {
         width: "80%",
         alignSelf: "center",
-        backgroundColor: Colors.gray,
+        backgroundColor: Colors.dark,
         borderRadius: 8,
         padding: 8,
         marginTop: 36,
@@ -82,12 +107,20 @@ const styles = StyleSheet.create({
     formTitle: {
         fontSize: 24,
         textAlign: "center",
+        color: Colors.blue,
+    },
+    formText: {
+        fontSize: 16,
+        color: Colors.blue,
+        marginLeft: 12,
     },
     input: {
         height: 40,
         margin: 12,
         borderWidth: 1,
         padding: 10,
+        color: Colors.green,
+        borderColor: Colors.green,
     },
     formButton: {
         marginVertical: 12,

@@ -39,6 +39,7 @@ export default function SearchResults({ route, navigation }) {
                     renderItem={({ item, index }) => {
                         return (
                             <DataCard
+                                index={index}
                                 name={item["Player Name"]}
                                 playerPassAttempt={
                                     route.params.week
@@ -64,7 +65,7 @@ export default function SearchResults({ route, navigation }) {
 
 const styles = StyleSheet.create({
     rootContainer: {
-        backgroundColor: Colors.primary,
+        backgroundColor: Colors.dark,
     },
     title: {
         color: Colors.gray,
