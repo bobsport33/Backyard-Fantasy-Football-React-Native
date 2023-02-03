@@ -25,7 +25,7 @@ export default function LoadingSpinner(props) {
                 visible={props.visible}
                 overlayColor="rgba(255,255,255,0.75)"
                 animationStyle={styles.lottie}
-                source={require("../assets/assets/lf30_l8csvun7.json")}
+                source={require("../assets/assets/lf20_tbrwjiv5.json")}
                 speed={1}
             >
                 <Text>{text[spinnerTextIndex]}</Text>

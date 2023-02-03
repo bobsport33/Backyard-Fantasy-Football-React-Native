@@ -9,27 +9,28 @@ export default function Login() {
     const passwordInputHandler = () => {};
 
     return (
-        <View style={styles.rootContainer}>
-            <Text style={styles.title}>Backyard Fantasy Football</Text>
-            <View style={styles.formContainer}>
-                <View>
-                    <Text>Email</Text>
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={emailInputHandler}
-                        placeholder="Email Address"
-                    />
-                </View>
-                <View>
-                    <Text>Password</Text>
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={passwordInputHandler}
-                        placeholder="Password"
-                    />
-                </View>
-                <Button title="login" />
+        <View style={styles.formContainer}>
+            <Text style={styles.formTitle}>Sign Up</Text>
+            <View>
+                <Text style={styles.formText}>Name</Text>
+                <TextInput style={styles.input} />
             </View>
+            <View>
+                <Text style={styles.formText}>Email</Text>
+                <TextInput style={styles.input} />
+            </View>
+            <View>
+                <Text style={styles.formText}>Password</Text>
+                <TextInput style={styles.input} />
+            </View>
+            <ColorButton
+                style={styles.formButton}
+                title="Sign Up"
+                backgroundColor={Colors.green}
+                borderColor={Colors.green}
+                textColor={Colors.dark}
+                onPress={submitFormHandler}
+            />
         </View>
     );
 }

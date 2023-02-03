@@ -16,24 +16,29 @@ export default function DataCard({
     let colorIndex = index % 3;
     return (
         <View style={[{ borderColor: colors[colorIndex] }, styles.card]}>
-            <View style={styles.row}>
+            <View style={styles.bigCol}>
                 <Text style={{ color: colors[colorIndex] }}>
                     Player: {name}
                 </Text>
+                <Text style={{ color: colors[colorIndex] }}>Team:{team}</Text>
                 <Text style={{ color: colors[colorIndex] }}>
                     Player Pass Attempt:
                     {playerPassAttempt}
                 </Text>
-            </View>
-            <View style={styles.row}>
-                <Text style={{ color: colors[colorIndex] }}>Team:{team}</Text>
+
                 <Text style={{ color: colors[colorIndex] }}>
                     Team Pass Attempt: {teamPassAttempt}
                 </Text>
             </View>
-            <Text style={{ color: colors[colorIndex] }}>
-                Target Share: {targetShare}%
-            </Text>
+            <View
+                style={[
+                    { backgroundColor: colors[colorIndex] },
+                    styles.smallCol,
+                ]}
+            >
+                <Text style={styles.smallColText}>Target Share:</Text>
+                <Text style={styles.smallColData}>{targetShare}%</Text>
+            </View>
         </View>
     );
 }
@@ -46,12 +51,33 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         width: "80%",
         alignSelf: "center",
-        padding: 6,
+        overflow: "hidden",
         borderWidth: 2,
-        // borderColor: Colors.green,
-    },
-    row: {
         flexDirection: "row",
+        elevation: 2,
+        shadowColor: "black",
+        shadowOpacity: 0.15,
+        shadowOffset: { width: 1, height: 1 },
+        shadowRadius: 2,
+    },
+    bigCol: {
+        width: "70%",
+        padding: 6,
+        backgroundColor: Colors.grey,
         justifyContent: "space-between",
+    },
+    smallCol: {
+        width: "30%",
+        padding: 8,
+    },
+    smallColText: {
+        color: Colors.dark,
+        fontSize: 20,
+        textAlign: "center",
+    },
+    smallColData: {
+        color: Colors.gray,
+        fontSize: 30,
+        textAlign: "center",
     },
 });

@@ -3,11 +3,10 @@ import {
     Text,
     StyleSheet,
     ScrollView,
-    TextInput,
     ImageBackground,
     Image,
 } from "react-native";
-import ImageCluster from "../components/ImageCluster";
+
 import Colors from "../constants/colors";
 import ColorButton from "../components/ColorButton";
 
@@ -36,28 +35,15 @@ export default function Home({ navigation }) {
                         next step towards winning!
                     </Text>
                 </View>
-
-                <View style={styles.formContainer}>
-                    <Text style={styles.formTitle}>Sign Up</Text>
-                    <View>
-                        <Text style={styles.formText}>Name</Text>
-                        <TextInput style={styles.input} />
-                    </View>
-                    <View>
-                        <Text style={styles.formText}>Email</Text>
-                        <TextInput style={styles.input} />
-                    </View>
-                    <View>
-                        <Text style={styles.formText}>Password</Text>
-                        <TextInput style={styles.input} />
-                    </View>
+                <View style={styles.linkContainer}>
+                    <Text style={styles.subtitle}>Fantasy Data</Text>
                     <ColorButton
-                        style={styles.formButton}
-                        title="Sign Up"
-                        backgroundColor={Colors.green}
-                        borderColor={Colors.green}
+                        title="Target Share Percentage"
+                        backgroundColor={Colors.gray}
                         textColor={Colors.dark}
                         onPress={submitFormHandler}
+                        borderColor={Colors.dark}
+                        style={styles.formButton}
                     />
                 </View>
             </ImageBackground>
@@ -88,6 +74,12 @@ const styles = StyleSheet.create({
         width: "80%",
         alignSelf: "center",
         borderRadius: 15,
+        marginBottom: 30,
+        elevation: 2,
+        shadowColor: "black",
+        shadowOpacity: 0.15,
+        shadowOffset: { width: 1, height: 1 },
+        shadowRadius: 2,
     },
     text: {
         fontSize: 20,
@@ -95,36 +87,28 @@ const styles = StyleSheet.create({
         marginVertical: 12,
         marginHorizontal: 24,
     },
-    formContainer: {
-        width: "80%",
-        alignSelf: "center",
-        backgroundColor: Colors.dark,
-        borderRadius: 8,
-        padding: 8,
-        marginTop: 36,
-        marginBottom: 24,
+    subtitle: {
+        fontSize: 30,
+        marginTop: 8,
+        color: Colors.gray,
     },
-    formTitle: {
-        fontSize: 24,
-        textAlign: "center",
-        color: Colors.blue,
-    },
-    formText: {
-        fontSize: 16,
-        color: Colors.blue,
-        marginLeft: 12,
-    },
-    input: {
-        height: 40,
-        margin: 12,
-        borderWidth: 1,
-        padding: 10,
-        color: Colors.green,
-        borderColor: Colors.green,
-    },
+
     formButton: {
         marginVertical: 12,
         width: "60%",
+    },
+    linkContainer: {
+        backgroundColor: Colors.dark,
+        opacity: 0.7,
+        width: "80%",
         alignSelf: "center",
+        borderRadius: 15,
+        marginBottom: 30,
+        elevation: 2,
+        shadowColor: "black",
+        shadowOpacity: 0.15,
+        shadowOffset: { width: 1, height: 1 },
+        shadowRadius: 2,
+        alignItems: "center",
     },
 });

@@ -43,7 +43,13 @@ export default function App() {
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Signup" component={Signup} />
                 <Stack.Screen name="Search" component={Search} />
-                <Stack.Screen name="SearchResults" component={SearchResults} />
+                <Stack.Screen
+                    name="SearchResults"
+                    component={SearchResults}
+                    options={{
+                        title: "Search Results",
+                    }}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );
